@@ -1,0 +1,141 @@
+/* Lumina Finance - Custom Styles & Microinteractions */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+:root {
+    --bg-dark: #090d16;
+    --card-dark: #111726;
+    --card-border: rgba(255, 255, 255, 0.07);
+    --emerald-primary: #10b981;
+    --emerald-glow: rgba(16, 185, 129, 0.25);
+    --cyan-accent: #06b6d4;
+    --rose-accent: #f43f5e;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: #f3f4f6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+    background: #1f293d;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #374151;
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+    background: rgba(17, 23, 38, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+}
+
+.glass-card-hover {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Glow effects */
+.glow-emerald {
+    box-shadow: 0 0 25px -5px var(--emerald-glow);
+}
+
+.glow-button {
+    box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.4);
+    transition: all 0.2s ease;
+}
+.glow-button:hover {
+    box-shadow: 0 6px 25px 0px rgba(16, 185, 129, 0.6);
+    transform: translateY(-1px);
+}
+
+/* Floating Widget Pulse */
+@keyframes pulseSubtle {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+    }
+}
+
+.floating-pulse {
+    animation: pulseSubtle 3s infinite ease-in-out;
+}
+
+/* Onboarding Spotlight Highlight */
+.onboarding-highlight {
+    position: relative;
+    z-index: 100 !important;
+    outline: 3px solid #10b981 !important;
+    outline-offset: 4px;
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.6) !important;
+    border-radius: 12px;
+    background: #111726 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Animation Utility */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Animated gradient text */
+.gradient-text-emerald {
+    background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-glow {
+    background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Hide number arrows */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Floating Chat Drawer transitions */
+.drawer-enter {
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.drawer-show {
+    transform: translateX(0);
+}
